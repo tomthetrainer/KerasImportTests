@@ -21,15 +21,15 @@ public class Keras2ModelImport {
         // UnComment and Run this Block on particular H5
         // To see error
 
-        /*
+/*
         String kerasModelfromKerasExport = "KerasModels/pollution_theano.h5";
-        MultiLayerNetwork model = KerasModelImport.importKerasSequentialModelAndWeights(kerasModelfromKerasExport);
+        MultiLayerNetwork model = KerasModelImport.importKerasSequentialModelAndWeights(kerasModelfromKerasExport,false);
         System.out.println("Model Configuration");
         String modelconfig = model.conf().toJson();
         System.out.println(modelconfig);
 
-        */
 
+*/
 
 
         // Step through all *.h5 files in
@@ -37,6 +37,7 @@ public class Keras2ModelImport {
         // Load them into a MultiLayerNetwork
         // If success, add to successes Array
         // If Failure add to failures Array
+
 
 
         File f = new File("KerasModels");
@@ -63,12 +64,16 @@ public class Keras2ModelImport {
 
         File[] files = f.listFiles(textFilter);
 
+
+
+
+
         for (File fileTemp : files){
             String filename = fileTemp.getPath();
 
             try {
-                System.out.println("********" + filename + "*********");
-                MultiLayerNetwork model = KerasModelImport.importKerasSequentialModelAndWeights(filename);
+                //System.out.println("********" + filename + "*********");
+                MultiLayerNetwork model = KerasModelImport.importKerasSequentialModelAndWeights(filename,false);
                 //System.out.println("Model Configuration");
                 String modelconfig = model.conf().toJson();
                 //System.out.println(modelconfig);
@@ -79,18 +84,23 @@ public class Keras2ModelImport {
             }
         }
 
-        System.out.println("\n\n######### SUCCESSES ##########");
+
+        System.out.println("\n######### SUCCESSES ##########");
             System.out.println(Successes);
 
         System.out.println("\n\n######### Failures ##########");
         System.out.println(Failures);
 
+        // A better way to do this would be
+        // to loop through enforce training config true/false
+        // See here.
+        //myMethod(false);
+        //myMethod(true);
 
     }
-
-
-
-
-
+    //public static void myMethod(boolean input) {
+    //    System.out.println("IN BOOLEAN");
+    //    System.out.println(input);
+    //    }
 
 }
