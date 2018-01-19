@@ -1,0 +1,7 @@
+/usr/local/Cellar/apache-spark/2.2.0/bin/spark-submit \
+    --class org.deeplearning4j.keras.KerasImportCSVSparkRunner \
+   --master spark://Toms-MacBook-Pro.local:7077  \
+  --files iris.csv,my_model.h5 \
+dl4j-quickstart-1.0-SNAPSHOT-jar-with-dependencies.jar  -indexLabel 5 -numClasses 4 -modelFileName irisModel.h5 -dataFileName iris.txt
+
+
