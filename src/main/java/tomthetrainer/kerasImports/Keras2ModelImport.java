@@ -1,4 +1,4 @@
-package skymind.dsx;
+package tomthetrainer.kerasImports;
 
 /**
  * Created by tomhanlon on 12/29/17.
